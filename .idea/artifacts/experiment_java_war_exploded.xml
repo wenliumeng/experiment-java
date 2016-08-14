@@ -6,6 +6,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="experiment-java" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:19.0" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/experiment-java/META-INF/MANIFEST.MF" />
