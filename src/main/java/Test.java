@@ -12,6 +12,7 @@ public class Test {
 
     Test increment() {
         i++;
+        //this关键字只对方法有用，代表调用这个方法的对象
         return this;
     }
 
