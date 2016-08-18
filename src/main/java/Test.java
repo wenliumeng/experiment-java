@@ -8,9 +8,19 @@ import java.util.List;
  */
 public class Test {
 
-    public static void main(String[] args) {
+    int i = 0;
 
-        char c = 'g';
-        System.out.println(Integer.toBinaryString((int)c));
+    Test increment() {
+        i++;
+        return this;
+    }
+
+    void print() {
+        System.out.println("i = " + i);
+    }
+
+    public static void main(String[] args) {
+        Test t = new Test();
+        t.increment().increment().increment().print();
     }
 }
