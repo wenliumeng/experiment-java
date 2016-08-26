@@ -1,7 +1,7 @@
-package packagecase;
+package access;
 
-import packagecase.connection.Connection;
-import packagecase.connection.ConnectionManager;
+import access.connection.Connection;
+import access.connection.ConnectionManager;
 
 /**
  * Created by Administrator on 2016/8/25.
