@@ -20,7 +20,7 @@ public class Shell {
                 if (l[i] < l[i - increment]) {
                     l[0] = l[i];
                     int j;
-                    for (j = i-increment; j > 0 && l[j] > l[0]; j = j -increment) {
+                    for (j = i-increment; j > 0 && l[j] > l[0]; j = j -increment) {//条件里面不能出现j-increment
                         l[j+increment] = l[j];
                     }
                     l[j+increment] = l[0];
