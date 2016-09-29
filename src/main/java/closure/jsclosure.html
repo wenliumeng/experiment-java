@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js closure</title>
+</head>
+<body>
+<button type="button" onclick="mFunction()">计数</button>
+<p id="demo">0</p>
+<script>
+    var add=(function(){
+        var count = 0;
+        return function (){return count+=1;}
+    })();
+    function mFunction(){
+        document.getElementById('demo').innerHTML = add();
+    }
+</script>
+</body>
+</html>
