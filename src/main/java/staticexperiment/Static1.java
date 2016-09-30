@@ -1,6 +1,6 @@
 package staticexperiment;
 
-//master 1  2
+//master 1  2  3
 public class Static1 {
 
     //按理来说static方法是不能调用非静态方法的，因为static不依赖对象，随时都存在
