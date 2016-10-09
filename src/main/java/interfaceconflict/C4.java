@@ -46,9 +46,7 @@ class C4 extends C implements I3 {
 }
 
 //覆盖，重载不能仅通过返回值类型来区分，IDE直接编译不通过
-class C5 extends C implements I2 {
-}
+//class C5 extends C implements I2 {}
 
-interface I4 extends I1, I3 {
-}
+//interface I4 extends I1, I3 {}
 
