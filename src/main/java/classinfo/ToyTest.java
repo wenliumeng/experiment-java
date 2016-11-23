@@ -3,7 +3,7 @@ package classinfo;
 /**
  * class.forName方法
  * Created by seyMour on 2016/11/22.
- * ☞Keenyoda☜
+ * ☞seyMour☜
  */
 interface HasBatteries {}
 interface Waterproff {}
