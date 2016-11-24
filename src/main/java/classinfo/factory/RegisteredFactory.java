@@ -1,9 +1,6 @@
 package classinfo.factory;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * 工厂模式 泛型
@@ -29,14 +26,24 @@ class Part {
         partFactories.add(new AirFilter.Factory());
         partFactories.add(new FanBelt.Factory());
         partFactories.add(new GeneratorBelt.Factory());
-
-
     }
 
     private static Random rand = new Random(47);
     public static Part createRandom() {
         int n = rand.nextInt(partFactories.size());
         return partFactories.get(n).create();
+    }
+
+    //第二种方式，不用显式工厂，而是将类对象存储到List中
+    static List<Class<? extends Part>> partClasses = Arrays.asList(FuelFilter.class,AirFilter.class,FanBelt.class,GeneratorBelt.class);
+    public static Part createRandom1(){
+        int n2 = rand.nextInt(partClasses.size());
+        try {
+            return partClasses.get(n2).newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 
