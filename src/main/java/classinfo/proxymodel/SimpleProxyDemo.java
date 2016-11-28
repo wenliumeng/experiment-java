@@ -23,10 +23,25 @@ class RealObject implements Interface{
     }
 }
 
-class SimplePorxy implements Interface{
+class otherRealObject implements Interface {
+    @Override
+    public void doSomething() {
+        System.out.println("doSomething other");
+    }
+
+    @Override
+    public void somethingElse(String arg) {
+        System.out.println("somethingElse other " + arg);
+    }
+}
+
+/**
+ * 代理，将额外的操作分离到其他的地方，方便做出修改
+ */
+class SimpleProxy implements Interface {
     private Interface proxy;
 
-    public SimplePorxy(Interface proxy) {
+    public SimpleProxy(Interface proxy) {
         this.proxy = proxy;
     }
 
@@ -52,6 +67,9 @@ public class SimpleProxyDemo {
 
     public static void main(String[] args) {
         consumer(new RealObject());
-        consumer(new SimplePorxy(new RealObject()));
+        System.out.println("");
+        consumer(new SimpleProxy(new RealObject()));
+        System.out.println();
+        consumer(new SimpleProxy(new otherRealObject()));
     }
 }

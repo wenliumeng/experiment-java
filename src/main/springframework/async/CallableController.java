@@ -2,10 +2,7 @@ package async;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.WebAsyncTask;
 
 import java.util.concurrent.Callable;
@@ -19,10 +16,17 @@ import java.util.concurrent.Callable;
 @Controller
 @RequestMapping("/async/callable")
 public class CallableController {
+
+    @RequestMapping(value = "/s2", method = RequestMethod.GET)
+    public String index() {
+        return "index1";
+    }
+
     @RequestMapping("/response-body")
-    public
     @ResponseBody
-    Callable<String> callable() {
+    public Callable<String> callable() {
+
+        System.out.println("d");
 
         return new Callable<String>() {
             @Override
