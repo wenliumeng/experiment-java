@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
 
 /**
  * Buffer相关
@@ -32,6 +35,14 @@ public class Buffer {
         //下面这两句效果一样
         toChannel.transferFrom(fromChannel,0,fromChannel.size());
         fromChannel.transferTo(0,fromChannel.size(),toChannel);
+    }
+
+    //select注册通道
+    void chanel() throws IOException{
+        SocketChannel channel = SocketChannel.open();
+        channel.configureBlocking(false);
+        Selector selector = Selector.open();
+        SelectionKey key = channel.register(selector,SelectionKey.OP_READ);
     }
 
 }
