@@ -16,8 +16,10 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        Test t = new Test();
-        t.increment().increment().increment().print();
+//        Test t = new Test();
+//        t.increment().increment().increment().print();
+        //DebugSmartInto
+        testDebugSmartInto().toString().concat("1");
     }
 
     //alt+Enter 直接编辑json
@@ -25,4 +27,9 @@ public class Test {
         //language=JSON
         String jo = "{\"ss\": \"ff\",\"sd\":\"dd\",\"d\":[{\"d\":\"d\"}]}";
     }
+
+    static String testDebugSmartInto(){
+        return "1";
+    }
+
 }
