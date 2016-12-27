@@ -19,4 +19,10 @@ public class Test {
         Test t = new Test();
         t.increment().increment().increment().print();
     }
+
+    //alt+Enter 直接编辑json
+    void testJSON(){
+        //language=JSON
+        String jo = "{\"ss\": \"ff\",\"sd\":\"dd\",\"d\":[{\"d\":\"d\"}]}";
+    }
 }
