@@ -4,7 +4,7 @@ import java.util.Observable;
 
 public class Device extends Observable {
 
-    String id = "3";
+    String id = "1";
 
     public String getId() {
         return id;
