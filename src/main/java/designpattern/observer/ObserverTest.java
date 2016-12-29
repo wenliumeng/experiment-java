@@ -7,18 +7,26 @@ package designpattern.observer;
 public class ObserverTest {
 
     public static void main(String[] args) {
-        MinaHandler minaHandler = new MinaHandler();
-        minaHandler.connect();
-        Device device = new Device();
+
+        InitObservable sub = new InitObservable();
+        sub.connect();
+        sub.addObserver(new MinaHandler());
+        sub.addListenerDevice("a");
+        sub.setChanged();
+
         try {
             Thread.sleep(3000);
-            minaHandler.addMonitorDevice(device, "d");
+            sub.addListenerDevice("d");
+            sub.setChanged();
             Thread.sleep(3000);
-            minaHandler.addMonitorDevice(device, "a");
+            sub.addListenerDevice("ee");
+            sub.setChanged();
             Thread.sleep(3000);
-            minaHandler.addMonitorDevice(device, "c");
+            sub.removeListenerDevice("d");
+            sub.setChanged();
             Thread.sleep(3000);
-            minaHandler.removeMonitorDevice(device, "a");
+            sub.addListenerDevice("dd");
+            sub.setChanged();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
