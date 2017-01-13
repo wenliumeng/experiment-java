@@ -3,7 +3,6 @@ package javaio;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  * 字节输入流无法按行来读
@@ -41,12 +40,34 @@ public class BufferedInputFile1 {
         return list;
     }
 
+    public static void read2(String filename) throws IOException {
+        BufferedReader in = new BufferedReader(
+                new StringReader(
+                        BufferedInputFile.read("./src/main/java/javaio/BufferedInputFile.java")
+                )
+        );
+
+        PrintWriter out = new PrintWriter(
+                new BufferedWriter(new FileWriter(filename))
+        );
+
+        int lineCount = 1;
+        String s;
+        while ((s = in.readLine()) != null)
+            out.println(lineCount++ + ":" + s);
+        out.close();
+//        System.out.println(BufferedInputFile.read(filename));
+    }
+
     public static void main(String[] args) throws IOException {
-        List list = read1("./src/main/java/javaio/BufferedInputFile.java");
-        for (ListIterator it = list.listIterator(list.size()); it.hasPrevious(); ) {
-            System.out.println(it.previous());
-        }
-        System.out.println(read1("./src/main/java/javaio/BufferedInputFile.java"));
+//        List list = read1("./src/main/java/javaio/BufferedInputFile.java");
+//        for (ListIterator it = list.listIterator(list.size()); it.hasPrevious(); ) {
+//            System.out.println(it.previous());
+//        }
+//        System.out.println(read1("./src/main/java/javaio/BufferedInputFile.java"));
+
+        read2("./src/main/java/javaio/BufferedInputFile.java");
+
     }
 
 }
