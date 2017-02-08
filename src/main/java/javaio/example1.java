@@ -1,7 +1,6 @@
 package javaio;
 
 import java.io.*;
-import java.nio.channels.FileChannel;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -35,7 +34,6 @@ public class Example1 {
 
         for (File fileS : files) {
             FileInputStream is = new FileInputStream(fileS);
-            FileChannel fis = is.getChannel();
 
             //按行读
             RandomAccessFile asf = new RandomAccessFile(fileS, "r");
@@ -65,7 +63,6 @@ public class Example1 {
                 }
             }
             writer.close();
-            fis.close();
         }
     }
 
