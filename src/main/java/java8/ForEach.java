@@ -55,16 +55,21 @@ public class ForEach {
     public void example1(){
         List<Article> articles = new ArrayList<>();
         Article article1 = new Article("title1","zhangsan", Arrays.asList("tag1","tag2"));
-        Article article2 = new Article("title2","lisi", Arrays.asList("tag3","tag4"));
+        Article article2 = new Article("title2","lisi", Arrays.asList("Java","tag4"));
         Article article3 = new Article("title3","wangwu", Arrays.asList("tag5","tag6"));
         articles.add(article1);
         articles.add(article2);
         articles.add(article3);
 
+        ForEach forEach = new ForEach();
+        System.out.println(forEach.getFirstJavaArticle1(articles).getAuthor());
+        System.out.println("--------");
+        System.out.println(forEach.getFirstJavaArticle2(articles).get().getAuthor());
     }
 
     public static void main(String[] args) {
-
+        ForEach forEach = new ForEach();
+        forEach.example1();
     }
 }
 
