@@ -7,6 +7,7 @@ import java.util.Optional;
 
 /**
  * 采用java8中的新流式特性来替代foreach循环
+ * 遍历查询
  * Created by seymour on 17/4/10.
  */
 public class ForEach {
