@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * 采用java8中的新流式特性来替代foreach循环
@@ -42,7 +43,6 @@ public class ForEach {
                 return article;
             }
         }
-
         return null;
     }
 
@@ -52,6 +52,10 @@ public class ForEach {
                 .findFirst();
     }
 
+    /**
+     * 寻找容器中的元素
+     * stream延迟计算
+     */
     public void example1(){
         List<Article> articles = new ArrayList<>();
         Article article1 = new Article("title1","zhangsan", Arrays.asList("tag1","tag2"));
@@ -67,6 +71,21 @@ public class ForEach {
         System.out.println(forEach.getFirstJavaArticle2(articles).get().getAuthor());
     }
 
+    public List<Article> getAllJavaArticle1(List<Article> articles){
+        ArrayList<Article> result = new ArrayList<>();
+        for (Article article : articles){
+            if (article.getTags().contains("Java"))
+                result.add(article);
+        }
+    }
+
+    public List<Article> getAllJavaArticle2(List<Article> articles){
+        return articles.stream().filter(article -> article.getTags().contains("Java")).collect(Collectors.toList());
+    }
+
+    public void example2(){
+
+    }
     public static void main(String[] args) {
         ForEach forEach = new ForEach();
         forEach.example1();
