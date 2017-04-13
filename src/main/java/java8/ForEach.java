@@ -81,6 +81,8 @@ public class ForEach {
     }
 
     public List<Article> getAllJavaArticle2(List<Article> articles){
+        //数组
+        //Long count = Arrays.stream(source).filter(source1 -> source1.equals(substring)).count();
         return articles.stream().filter(article -> article.getTags().contains("Java")).collect(Collectors.toList());
     }
 
