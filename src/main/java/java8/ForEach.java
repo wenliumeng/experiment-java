@@ -1,9 +1,7 @@
 package java8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -86,9 +84,32 @@ public class ForEach {
         return articles.stream().filter(article -> article.getTags().contains("Java")).collect(Collectors.toList());
     }
 
-    public void example2(){
+    public Map<String,List<Article>> groupByAuthor1(List<Article> articles){
+        Map<String,List<Article>> result = new HashMap<>();
 
+        for (Article article:articles) {
+            if (result.containsKey(article.getAuthor())){
+                result.get(article.getAuthor()).add(article);
+            } else {
+                ArrayList<Article> articles1 = new ArrayList<>();
+                articles1.add(article);
+                result.put(article.getAuthor(),articles);
+            }
+        }
+        return result;
     }
+
+    //group
+    public Map<String,List<Article>> groupByAuthor2(List<Article> articles){
+        return articles.stream().collect(Collectors.groupingBy(Article::getAuthor));
+    }
+
+    //filter
+    public Set<String> getDistinctTags(List<Article> articles){
+        return articles.stream().flatMap(article -> article.getTags().stream())
+                .collect(Collectors.toSet());
+    }
+
     public static void main(String[] args) {
         ForEach forEach = new ForEach();
         forEach.example1();
