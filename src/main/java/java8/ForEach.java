@@ -76,6 +76,7 @@ public class ForEach {
             if (article.getTags().contains("Java"))
                 result.add(article);
         }
+        return result;
     }
 
     public List<Article> getAllJavaArticle2(List<Article> articles){
