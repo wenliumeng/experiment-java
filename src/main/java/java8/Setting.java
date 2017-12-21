@@ -35,10 +35,10 @@ public class Setting<T> {
 	public Setting(String defaultValue) {
 		//形如s -> "",就是基本的赋值操作
 		//这一步确定了apply的函数操作，定义的s就是apply的参数
-		this(s -> defaultValue + s);
-//		this(s -> System.out::println);
-//		this(s -> String::valueOf);
-//		this(s -> Integer::parseInt);
+//		this(s -> defaultValue + s);
+
+
+		this(s -> String.valueOf(Math.max(s,defaultValue.length())));
 
 		//MFunction 两个参数
 //		this((Integer s, String v) -> s.toString() + v);
