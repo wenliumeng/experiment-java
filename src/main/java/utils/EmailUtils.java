@@ -45,6 +45,7 @@ public class EmailUtils {
 		List<String> result = new ArrayList<>();
 		Collections.addAll(result,originalEmail.trim().replace(" ", "#").replace(",", "#").replace("£¬", "#").split("#"));
 
+
 		Iterator<String> iterator = result.iterator();
 		while(iterator.hasNext()){
 			if (!isEmail(iterator.next())) {
