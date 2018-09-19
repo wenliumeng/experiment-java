@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.List;
+
 public class StringUtils {
 
 	/**
@@ -33,5 +35,30 @@ public class StringUtils {
 			sb.append(tail);
 		}
 		return sb.toString();
+	}
+
+
+	/**
+	 * 按照分隔符分割成list
+	 * @param targetStr 源字符串
+	 * @param splitStr 分隔符
+	 * @param fromIndex 分割开始的位置
+	 * @param list 目标list
+	 */
+	public static void splitBarcode(String targetStr, String splitStr, int fromIndex, List<String> list) {
+		if (org.springframework.util.StringUtils.isEmpty(targetStr) || org.springframework.util.StringUtils.isEmpty(splitStr)) {
+			return;
+		}
+
+		int index = targetStr.indexOf(splitStr, fromIndex);
+
+		if (index != -1) {
+			String unitNameString = targetStr.substring(fromIndex, index);
+			list.add(unitNameString);
+			splitBarcode(targetStr, splitStr, index + 1, list);
+		} else {
+			String unitNameString = targetStr.substring(fromIndex);
+			list.add(unitNameString);
+		}
 	}
 }
